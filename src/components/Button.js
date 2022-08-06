@@ -1,41 +1,40 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
-
 import styled from "styled-components";
+
 import { Colors } from "../utils/style/Colors";
 
-export default function ButtonLink({
+export default function Button({
   title,
-  link,
-  isNavbar = false,
-  border = true,
+  center = false,
+  border = false,
   fullWidth = false,
   animation = false,
 }) {
   return (
-    <StyledButtonLink
-      to={link}
-      isnavbar={isNavbar.toString()}
+    <StyledButton
+      type="submit"
+      center={center.toString()}
       border={border.toString()}
       fullwidth={fullWidth.toString()}
       animation={animation.toString()}
     >
       {title}
-    </StyledButtonLink>
+    </StyledButton>
   );
 }
 
-const StyledButtonLink = styled(Link)`
+const StyledButton = styled.button`
+  font-family: inherit;
+  border: none;
   border-radius: ${(props) => (props.border === "true" ? "100px" : "2px")};
   background-color: ${Colors.red};
   color: ${Colors.white};
   box-shadow: 10px 10px 60px rgb(0 0 0 / 30%);
-  display: block;
   text-decoration: none;
   padding: 5px 20px;
   width: ${(props) => (props.fullwidth === "false" ? "max-content" : null)};
-  margin: 20px auto 0 auto;
+  margin: ${(props) => (props.center === "true" ? "20px auto" : "20px 0")};
   transition: 0.2s;
   cursor: pointer;
   &:hover {
@@ -43,9 +42,5 @@ const StyledButtonLink = styled(Link)`
     transform: ${(props) =>
       props.animation === "true" ? "scale(1.05)" : null};
     transition: 0.2s;
-  }
-  @media screen and (min-width: 1024px) {
-    margin: ${(props) =>
-      props.isnavbar === "true" ? "0 auto" : "20px auto 0 auto"};
   }
 `;

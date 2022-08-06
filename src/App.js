@@ -1,25 +1,35 @@
-import React from 'react'
+import React from "react";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Router } from './utils/Router'
+// helmet
+import { HelmetProvider } from "react-helmet-async";
 
-import { GlobalStyle } from './utils/style/GlobalStyle'
+// router
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Router } from "./utils/Router";
 
-import RealisationsPage from './pages/RealisationsPage'
+// utils
+import { GlobalStyle } from "./utils/style/GlobalStyle";
 
-import Header from './components/Header'
-import Footer from './components/Footer'
+// components
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+// pages
+import ContactPage from "./pages/ContactPage";
+import AchievementsPage from "./pages/AchievementsPage";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <GlobalStyle />
-      <Header />
-      <Routes>
-        <Route path={Router.realisations} element={<RealisationsPage />} />
-        <Route index element={<RealisationsPage />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
-  )
+    <HelmetProvider>
+      <BrowserRouter>
+        <GlobalStyle />
+        <Header />
+        <Routes>
+          <Route path={Router.contact} element={<ContactPage />} />
+          <Route path={Router.realisations} element={<AchievementsPage />} />
+          <Route index element={<AchievementsPage />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </HelmetProvider>
+  );
 }

@@ -1,4 +1,5 @@
 export const Router = {
     realisations: "/realisations",
-    services: "/services"
+    services: "/services",
+    contact: "/contact"
 }
