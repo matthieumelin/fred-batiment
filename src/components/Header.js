@@ -12,63 +12,63 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
-  const location = useLocation();
+    const location = useLocation();
 
-  const [navbarIsOpen, setNavbarIsOpen] = useState(false);
-  return (
-    <StyledHeader>
-      <Navbar>
-        <NavbarWrapper>
-          <NavLink to="/">
-            <NavbarBrand
-              src={`${process.env.PUBLIC_URL}/assets/images/logo.png`}
-              alt="Logo"
-            />
-          </NavLink>
-          <NavbarToggle navbarIsOpen={navbarIsOpen}>
-            <FontAwesomeIcon
-              onClick={() => setNavbarIsOpen(!navbarIsOpen)}
-              icon={navbarIsOpen ? faTimes : faBars}
-              color={Colors.white}
-              style={{
-                backgroundColor: Colors.red,
-                borderRadius: 2,
-                padding: "5 7",
-                width: 15,
-                height: 15,
-                cursor: "pointer",
-              }}
-            />
-          </NavbarToggle>
-        </NavbarWrapper>
-        <NavbarMenu navbarIsOpen={navbarIsOpen}>
-          {Object.keys(Router).map((route, key) => {
-            return (
-              <NavbarMenuItem key={key}>
-                <NavbarMenuLink to={route}>
-                  {route.charAt(0).toUpperCase() + route.slice(1).toLowerCase()}
-                </NavbarMenuLink>
-              </NavbarMenuItem>
-            );
-          })}
-          <NavbarMenuItemRight>
-            <ButtonLink
-              title="07 83 40 61 65"
-              fullWidth={true}
-              border={false}
-              isNavbar={true}
-              link={location.pathname}
-            />
-          </NavbarMenuItemRight>
-        </NavbarMenu>
-      </Navbar>
-      <HeaderContent>
-        <HeaderTitle>Fred Batiment</HeaderTitle>
-        <HeaderDescription>Rapide et fiable.</HeaderDescription>
-        <ButtonLink title="Voir les réalisations" link={Router.realisations} />
-      </HeaderContent>
-    </StyledHeader>
-  );
+    const [navbarIsOpen, setNavbarIsOpen] = useState(false);
+    return (
+        <StyledHeader>
+            <Navbar>
+                <NavbarWrapper>
+                    <NavLink to="/">
+                        <NavbarBrand
+                            src={`${process.env.PUBLIC_URL}/assets/images/logo.png`}
+                            alt="Logo de Fred Batiment" />
+                    </NavLink>
+                    <NavbarToggle navbarIsOpen={navbarIsOpen}>
+                        <FontAwesomeIcon
+                            onClick={() => setNavbarIsOpen(!navbarIsOpen)}
+                            icon={navbarIsOpen ? faTimes : faBars}
+                            color={Colors.white}
+                            style={{
+                                backgroundColor: Colors.red,
+                                borderRadius: 2,
+                                padding: "5 7",
+                                width: 15,
+                                height: 15,
+                                cursor: "pointer",
+                            }}
+                        />
+                    </NavbarToggle>
+                </NavbarWrapper>
+                <NavbarMenu navbarIsOpen={navbarIsOpen}>
+                    {Object.keys(Router).map((route, key) => {
+                        return (
+                            <NavbarMenuItem key={key}>
+                                <NavbarMenuLink to={route}>
+                                    {route.charAt(0).toUpperCase() + route.slice(1).toLowerCase()}
+                                </NavbarMenuLink>
+                            </NavbarMenuItem>
+                        );
+                    })}
+                    <NavbarMenuItemRight>
+                        <ButtonLink
+                            title="Devis gratuit au 06 83 40 50 84"
+                            uppercase={true}
+                            fullWidth={true}
+                            border={false}
+                            isNavbar={true}
+                            link={location.pathname}
+                        />
+                    </NavbarMenuItemRight>
+                </NavbarMenu>
+            </Navbar>
+            <HeaderContent>
+                <HeaderTitle>Fred Batiment</HeaderTitle>
+                <HeaderDescription>Réalisation de vos travaux à domicile dans le secteur du 62.</HeaderDescription>
+                <ButtonLink title="Voir les services" link={Router.services} />
+            </HeaderContent>
+        </StyledHeader>
+    );
 }
 
 const StyledHeader = styled.header`

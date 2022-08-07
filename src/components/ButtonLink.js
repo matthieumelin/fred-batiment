@@ -8,6 +8,7 @@ import { Colors } from "../utils/style/Colors";
 export default function ButtonLink({
   title,
   link,
+  uppercase = false,
   isNavbar = false,
   border = true,
   fullWidth = false,
@@ -16,6 +17,7 @@ export default function ButtonLink({
   return (
     <StyledButtonLink
       to={link}
+      uppercase={uppercase.toString()}
       isnavbar={isNavbar.toString()}
       border={border.toString()}
       fullwidth={fullWidth.toString()}
@@ -33,6 +35,7 @@ const StyledButtonLink = styled(Link)`
   box-shadow: 10px 10px 60px rgb(0 0 0 / 30%);
   display: block;
   text-decoration: none;
+  text-transform:${(props) => props.uppercase === "true" ? "uppercase" : null};
   padding: 5px 20px;
   width: ${(props) => (props.fullwidth === "false" ? "max-content" : null)};
   margin: 20px auto 0 auto;

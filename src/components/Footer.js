@@ -21,13 +21,14 @@ export default function Footer() {
           <Link to="/">
             <FooterAboutLogo
               src={`${process.env.PUBLIC_URL}/assets/images/logo.png`}
-              alt="Logo"
+              alt="Logo de Fred Batiment"
+              tabIndex={0}
             />
           </Link>
           <FooterAboutDescription>
-            Je réalise vos travaux à domicile dans le secteur du 62
-            (Nord-pas-de-calais)
-            Devis gratuit au 07.83.40.61.65
+            Réalisation de vos travaux à domicile dans le secteur du 62.
+            <FooterBreakLine />
+            Devis gratuit au 06 83 40 50 84
           </FooterAboutDescription>
         </FooterAbout>
         <FooterSections>
@@ -35,17 +36,17 @@ export default function Footer() {
             <FooterSectionTitle>Rubriques</FooterSectionTitle>
             <FooterSectionMenu>
               <FooterSectionMenuItem>
-                <FooterSectionMenuLink to="#">
+                <FooterSectionMenuLink to="#" tabIndex={0}>
                   Réalisations
                 </FooterSectionMenuLink>
               </FooterSectionMenuItem>
               <FooterSectionMenuItem>
-                <FooterSectionMenuLink to="#">
+                <FooterSectionMenuLink to="#" tabIndex={0}>
                   Préstations
                 </FooterSectionMenuLink>
               </FooterSectionMenuItem>
               <FooterSectionMenuItem>
-                <FooterSectionMenuLink to="#">Contact</FooterSectionMenuLink>
+                <FooterSectionMenuLink to="#" tabIndex={0}>Contact</FooterSectionMenuLink>
               </FooterSectionMenuItem>
             </FooterSectionMenu>
           </FooterSection>
@@ -53,7 +54,7 @@ export default function Footer() {
             <FooterSectionTitle>Informations</FooterSectionTitle>
             <FooterSectionMenu>
               <FooterSectionMenuItem>
-                <FooterSectionMenuLink to="#">
+                <FooterSectionMenuLink to="#" tabIndex={0}>
                   Mentions légales
                 </FooterSectionMenuLink>
               </FooterSectionMenuItem>
@@ -63,18 +64,18 @@ export default function Footer() {
             <FooterSectionTitle>Réseaux sociaux</FooterSectionTitle>
             <FooterSectionMenu>
               <FooterSectionMenuItem>
-                <FooterSectionMenuLink to="#">
+                <FooterSectionMenuLink to="#" tabIndex={0}>
                   <FontAwesomeIcon icon={faFacebook} /> Facebook
                 </FooterSectionMenuLink>
               </FooterSectionMenuItem>
               <FooterSectionMenuItem>
-                <FooterSectionMenuLink to="#">
+                <FooterSectionMenuLink to="#" tabIndex={0}>
                   <FontAwesomeIcon icon={faInstagram} /> Instagram
                 </FooterSectionMenuLink>
               </FooterSectionMenuItem>
               <FooterSectionMenuItem>
-                <FooterSectionMenuLink to="#">
-                  <FontAwesomeIcon icon={faLinkedin} /> Linkedin{" "}
+                <FooterSectionMenuLink to="#" tabIndex={0}>
+                  <FontAwesomeIcon icon={faLinkedin} /> Linkedin
                 </FooterSectionMenuLink>
               </FooterSectionMenuItem>
             </FooterSectionMenu>
@@ -160,3 +161,4 @@ const FooterCopyright = styled.p`
   padding: 10px;
   text-align: center;
 `;
+const FooterBreakLine = styled.br``;
