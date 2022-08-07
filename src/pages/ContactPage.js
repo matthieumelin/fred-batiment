@@ -12,6 +12,7 @@ import Alert from "../components/Alert";
 
 // utils
 import { isValidEmail } from "../utils/Formatter";
+import { Colors } from "../utils/style/Colors";
 
 // email js
 import { send } from "emailjs-com";
@@ -133,6 +134,7 @@ export default function ContactPage() {
                 onChange={(event) => onChange(event)}
                 value={inputs.email}
                 type="email"
+                placeholder="Votre e-mail"
               />
               {errors["email"] ? (
                 <Alert type="error" message={errors["email"]} />
@@ -195,8 +197,19 @@ const Form = styled.form`
   margin: 0 auto;
 `;
 const FormTitle = styled.h2`
-  text-align: center;
-`;
+text-align:center;
+position:relative;
+
+&::after {
+  content: "";
+  position: absolute;
+  background-color: ${Colors.red};
+  height: 5px;
+  width: 30px;
+  left: 50%;
+  bottom: -5px;
+  transform: translate(-50%, -50%);
+}`;
 const FormGroups = styled.div`
   display: flex;
   flex-direction: column;

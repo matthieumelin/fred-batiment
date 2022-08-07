@@ -15,7 +15,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 // pages
 import ContactPage from "./pages/ContactPage";
-import AchievementsPage from "./pages/AchievementsPage";
+import WorksPage from "./pages/WorksPage";
+import ServicesPage from "./pages/ServicesPage";
 
 export default function App() {
   return (
@@ -24,9 +25,10 @@ export default function App() {
         <GlobalStyle />
         <Header />
         <Routes>
+          <Route path={Router.services} element={<ServicesPage />} />
           <Route path={Router.contact} element={<ContactPage />} />
-          <Route path={Router.realisations} element={<AchievementsPage />} />
-          <Route index element={<AchievementsPage />} />
+          <Route path={Router.realisations} element={<WorksPage />} />
+          <Route index element={<WorksPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
